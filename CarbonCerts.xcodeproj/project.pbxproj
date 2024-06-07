@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30FB7BA2C133E6B00ECD88A /* CertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7B92C133E6B00ECD88A /* CertService.swift */; };
 		B3292FD22C11C04300015C9E /* CarbonCertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */; };
 		B3292FD42C11C04300015C9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD32C11C04300015C9E /* ContentView.swift */; };
-		B3292FD62C11C04300015C9E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD52C11C04300015C9E /* Item.swift */; };
+		B3292FD62C11C04300015C9E /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD52C11C04300015C9E /* Certificate.swift */; };
 		B3292FD82C11C04400015C9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3292FD72C11C04400015C9E /* Assets.xcassets */; };
 		B3292FDC2C11C04400015C9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3292FDB2C11C04400015C9E /* Preview Assets.xcassets */; };
 		B3292FE62C11C04500015C9E /* CarbonCertsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE52C11C04500015C9E /* CarbonCertsTests.swift */; };
 		B3292FF02C11C04500015C9E /* CarbonCertsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FEF2C11C04500015C9E /* CarbonCertsUITests.swift */; };
 		B3292FF22C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FF12C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift */; };
+		B32930012C11C5FB00015C9E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930002C11C5FB00015C9E /* CombineMoya */; };
+		B32930032C11C5FB00015C9E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930022C11C5FB00015C9E /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B30FB7B92C133E6B00ECD88A /* CertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertService.swift; sourceTree = "<group>"; };
 		B3292FCE2C11C04300015C9E /* CarbonCerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarbonCerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsApp.swift; sourceTree = "<group>"; };
 		B3292FD32C11C04300015C9E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		B3292FD52C11C04300015C9E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B3292FD52C11C04300015C9E /* Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Certificate.swift; sourceTree = "<group>"; };
 		B3292FD72C11C04400015C9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3292FD92C11C04400015C9E /* CarbonCerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarbonCerts.entitlements; sourceTree = "<group>"; };
 		B3292FDB2C11C04400015C9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32930032C11C5FB00015C9E /* Moya in Frameworks */,
+				B32930012C11C5FB00015C9E /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B30FB7B42C1333A600ECD88A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B30FB7B92C133E6B00ECD88A /* CertService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B30FB7B52C1333BD00ECD88A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3292FD52C11C04300015C9E /* Certificate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B30FB7B62C1333C600ECD88A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B30FB7B72C1333CD00ECD88A /* ViewModels */,
+				B3292FD32C11C04300015C9E /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B30FB7B72C1333CD00ECD88A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B30FB7B82C133E3900ECD88A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B30FB7B42C1333A600ECD88A /* Network */,
+				B3292FFE2C11C56100015C9E /* Utils */,
+				B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */,
+				B30FB7B62C1333C600ECD88A /* Views */,
+				B30FB7B52C1333BD00ECD88A /* Model */,
+				B3292FD72C11C04400015C9E /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		B3292FC52C11C04300015C9E = {
 			isa = PBXGroup;
 			children = (
@@ -97,10 +148,7 @@
 		B3292FD02C11C04300015C9E /* CarbonCerts */ = {
 			isa = PBXGroup;
 			children = (
-				B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */,
-				B3292FD32C11C04300015C9E /* ContentView.swift */,
-				B3292FD52C11C04300015C9E /* Item.swift */,
-				B3292FD72C11C04400015C9E /* Assets.xcassets */,
+				B30FB7B82C133E3900ECD88A /* App */,
 				B3292FD92C11C04400015C9E /* CarbonCerts.entitlements */,
 				B3292FDA2C11C04400015C9E /* Preview Content */,
 			);
@@ -132,6 +180,13 @@
 			path = CarbonCertsUITests;
 			sourceTree = "<group>";
 		};
+		B3292FFE2C11C56100015C9E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +203,10 @@
 			dependencies = (
 			);
 			name = CarbonCerts;
+			packageProductDependencies = (
+				B32930002C11C5FB00015C9E /* CombineMoya */,
+				B32930022C11C5FB00015C9E /* Moya */,
+			);
 			productName = CarbonCerts;
 			productReference = B3292FCE2C11C04300015C9E /* CarbonCerts.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +279,9 @@
 				Base,
 			);
 			mainGroup = B3292FC52C11C04300015C9E;
+			packageReferences = (
+				B3292FFF2C11C5FB00015C9E /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = B3292FCF2C11C04300015C9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,8 +325,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3292FD42C11C04300015C9E /* ContentView.swift in Sources */,
-				B3292FD62C11C04300015C9E /* Item.swift in Sources */,
+				B3292FD62C11C04300015C9E /* Certificate.swift in Sources */,
 				B3292FD22C11C04300015C9E /* CarbonCertsApp.swift in Sources */,
+				B30FB7BA2C133E6B00ECD88A /* CertService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +684,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3292FFF2C11C5FB00015C9E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B32930002C11C5FB00015C9E /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3292FFF2C11C5FB00015C9E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		B32930022C11C5FB00015C9E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3292FFF2C11C5FB00015C9E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3292FC62C11C04300015C9E /* Project object */;
 }
