@@ -12,7 +12,7 @@ import SwiftData
 struct CarbonCertsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainContentView()
         }.modelContainer(for: Certificate.self, isAutosaveEnabled: true)
     }
 }

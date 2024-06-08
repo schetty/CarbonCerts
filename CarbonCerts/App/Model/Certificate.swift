@@ -20,6 +20,7 @@ final class Certificate: Codable, Identifiable {
     let owner: String?
     let ownerCountry: String?
     let status: String?
+    var isFavorited: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, originator
@@ -41,6 +42,7 @@ final class Certificate: Codable, Identifiable {
         self.owner = owner
         self.ownerCountry = ownerCountry
         self.status = status
+        self.isFavorited = false
     }
 
     required init(from decoder: Decoder) throws {
@@ -51,6 +53,7 @@ final class Certificate: Codable, Identifiable {
         owner = try container.decodeIfPresent(String.self, forKey: .owner)
         ownerCountry = try container.decodeIfPresent(String.self, forKey: .ownerCountry)
         status = try container.decodeIfPresent(String.self, forKey: .status)
+        isFavorited = false
     }
 
     func encode(to encoder: Encoder) throws {
