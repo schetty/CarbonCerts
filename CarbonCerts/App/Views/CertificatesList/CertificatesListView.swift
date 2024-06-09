@@ -14,6 +14,7 @@ struct CertificatesListView: View {
     @Query(sort: \Certificate.id, order: .forward) private var certs: Certificates
     @ObservedObject var viewModel: CertificatesListViewModel
     @State private var isLoading: Bool = true
+
     
     var body: some View {
         NavigationView {
@@ -24,18 +25,19 @@ struct CertificatesListView: View {
                             .padding(.horizontal, 20)
                     }).listRowBackground(Color.clear)
                 }.onAppear {
-                        viewModel.fetchCertificatesData(page: 1, limit: 10)
-                    }
+                    viewModel.fetchCertificatesData(page: 1, limit: 10)
+                }
+                .scrollContentBackground(.hidden)
             }.navigationTitle(Constants.Strings.ListTitle)
-            .toolbarBackground(Color.teal,
-                               for: .navigationBar)
-            .scrollContentBackground(.hidden)
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [.teal.opacity(0.4), .white, .white]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-                )
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.agreenateal, for: .navigationBar)
+            .toolbarColorScheme(.dark)
+            .navigationBarTitleDisplayMode(.large)
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.agreenateal.opacity(0.4), .white, .white]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            )
         }
     }
-    
 }
 
 #Preview {
