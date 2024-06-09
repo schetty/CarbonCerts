@@ -18,5 +18,6 @@ struct Constants {
         static let Originator = "Originator: "
         static let Owner = "Owner: "
         static let Status = "Status: "
+        static let CertNA = "Certificate Not Available"
     }
 }

@@ -31,6 +31,7 @@
 		B3292FF22C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FF12C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift */; };
 		B32930012C11C5FB00015C9E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930002C11C5FB00015C9E /* CombineMoya */; };
 		B32930032C11C5FB00015C9E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930022C11C5FB00015C9E /* Moya */; };
+		B3E4CC452C15CD2400A3B7D4 /* CertificateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B3292FEB2C11C04500015C9E /* CarbonCertsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonCertsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3292FEF2C11C04500015C9E /* CarbonCertsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsUITests.swift; sourceTree = "<group>"; };
 		B3292FF12C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +223,26 @@
 		B3292FFE2C11C56100015C9E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B3E4CC432C15CD0B00A3B7D4 /* Style */,
 				B30FB7C42C13B73D00ECD88A /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B3E4CC422C15CCDC00A3B7D4 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		B3E4CC432C15CD0B00A3B7D4 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				B3E4CC422C15CCDC00A3B7D4 /* CustomComponents */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +385,7 @@
 				B3292FD42C11C04300015C9E /* MainContentView.swift in Sources */,
 				B3292FD62C11C04300015C9E /* Certificate.swift in Sources */,
 				B30FB7C62C13B91C00ECD88A /* FavouritesListView.swift in Sources */,
+				B3E4CC452C15CD2400A3B7D4 /* CertificateListCell.swift in Sources */,
 				B30FB7C22C13B04100ECD88A /* CertificatesListView.swift in Sources */,
 				B30FB7C82C13B92800ECD88A /* FavouritesListViewModel.swift in Sources */,
 				B3292FD22C11C04300015C9E /* CarbonCertsApp.swift in Sources */,
