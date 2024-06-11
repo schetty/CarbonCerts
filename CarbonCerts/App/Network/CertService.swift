@@ -5,27 +5,38 @@
 //  Created by Naomi on 07/06/2024.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 import CombineMoya
 import Moya
 
+//protocol APIService {
+//    func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel>
+//}
+
 struct APIManager {
     
+    // MARK: - API Constants
+    // Keep API constants within the service file and separate from global string constants for the rest of the app.
+
     struct APIConstants {
+        // Base URL + the API key that is sent with the headers
         static let APIKey = "FIELDMARGIN-TECH-TEST"
-        static let APIUrl = "https://api-dev-v2.fieldmargin.com/tech-test"
+        static let APIBase = "https://api-dev-v2.fieldmargin.com/tech-test"
         
+        // Endpoint for fetching carbon certificates
         struct Endpoints {
             static let Certificates = "/certificates"
         }
+        
+        // Params that will be attached to query string in GET request
         struct ParameterKeys {
             static let Page = "page"
             static let Limit = "limit"
         }
     }
     
-    static var cancellable = Set<AnyCancellable>()
+    static private var cancellables = Set<AnyCancellable>()
     
     static func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel> {
         Future<Certificates, ErrorModel> { promise in
@@ -33,19 +44,18 @@ struct APIManager {
             provider.requestPublisher(.getCerts(page: page, limit: limit))
                 .sink(receiveCompletion: { completion in
                     switch completion {
-                    case .finished:
-                        print("RECEIVE VALUE COMPLETED")
-                    case .failure:
-                        print("RECEIVE VALUE FAILED")
+                    case let .failure(error) :
+                        print("couldn't retrieve certificates : " + error.localizedDescription)
+                    case .finished :
+                        print("succcessfully retrieved certificates")
                     }
                 }, receiveValue: { response in
-                    print(response.data.base64EncodedString())
                     guard let result = try? JSONDecoder().decode(Certificates.self, from: response.data) else {
                         return
                     }
                     promise(.success(result))
                 })
-                .store(in: &cancellable)
+                .store(in: &cancellables)
             
         }.eraseToAnyPublisher()
     }
@@ -58,7 +68,7 @@ enum CertService {
 // MARK: - TargetType Protocol Implementation
 extension CertService: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: APIManager.APIConstants.APIUrl) else { fatalError() }
+        guard let url = URL(string: APIManager.APIConstants.APIBase) else { fatalError() }
         return url
     }
     

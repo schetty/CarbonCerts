@@ -31,7 +31,7 @@ struct MainContentView: View {
                 }
             
             
-            FavouritesListView(viewModel: favouritesListViewModel)
+            FavouritesListView()
                 .toolbarRole(.editor)
                 .tabItem {
                     Label {

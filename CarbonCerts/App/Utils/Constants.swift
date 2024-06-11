@@ -10,7 +10,8 @@ import Foundation
 struct Constants {
     
     struct Strings {
-        static let ListTitle = "Agreena Certificates"
+        static let MainListTitle = "Agreena Certificates"
+        static let FavoritesListTitle = "Saved Certificates"
         static let DataNA = "This data is N/A"
         static let Home = "Home"
         static let Favs = "Favourites"

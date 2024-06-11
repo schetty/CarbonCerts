@@ -119,8 +119,8 @@
 		B30FB7B62C1333C600ECD88A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B30FB7BE2C13AE7400ECD88A /* CertificatesList */,
 				B30FB7BB2C13AD3A00ECD88A /* Main */,
+				B30FB7BE2C13AE7400ECD88A /* CertificatesList */,
 				B30FB7BC2C13AD4700ECD88A /* Favourites */,
 			);
 			path = Views;
