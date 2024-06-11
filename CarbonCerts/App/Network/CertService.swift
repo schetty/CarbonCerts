@@ -10,11 +10,17 @@ import Combine
 import CombineMoya
 import Moya
 
-//protocol APIService {
-//    func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel>
-//}
+/// A protocol that defines the contract for fetching certificates from a remote service.
+///
+/// This protocol is used to abstract the details of the certificate fetching service,
+/// allowing for dependency injection and easier testing. Any type conforming to this
+/// protocol must implement the `fetchCertificates(page:limit:)` method, which retrieves
+/// a list of certificates from a remote API based on pagination parameters.
+protocol CertServiceProtocol {
+    func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel>
+}
 
-struct APIManager {
+class APIManager: CertServiceProtocol {
     
     // MARK: - API Constants
     // Keep API constants within the service file and separate from global string constants for the rest of the app.
@@ -36,9 +42,20 @@ struct APIManager {
         }
     }
     
-    static private var cancellables = Set<AnyCancellable>()
-    
-    static func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel> {
+    private var cancellables = Set<AnyCancellable>()
+        
+    /// Fetches a list of certificates from the remote API based on the provided pagination parameters.
+    ///
+    /// This function makes a network request to fetch certificates from a specified endpoint using the Moya framework.
+    /// It returns a publisher that emits an array of `Certificate` objects or `ErrorModel` in case of failure.
+    ///
+    /// - Parameters:
+    ///   - page: The page number for the paginated request. This is a `String` representing the current page of data to fetch.
+    ///   - limit: The limit for the paginated request. This is a `String` representing the maximum number of certificates to fetch per page.
+    ///
+    /// - Returns: An `AnyPublisher` of the Moya framework that emits an array of `Certificate` objects on success or an `ErrorModel` on failure.
+    ///
+    func fetchCertificates(page: String, limit: String) -> AnyPublisher<Certificates, ErrorModel> {
         Future<Certificates, ErrorModel> { promise in
             let provider = MoyaProvider<CertService>()
             provider.requestPublisher(.getCerts(page: page, limit: limit))
@@ -55,7 +72,7 @@ struct APIManager {
                     }
                     promise(.success(result))
                 })
-                .store(in: &cancellables)
+                .store(in: &self.cancellables)
             
         }.eraseToAnyPublisher()
     }
@@ -65,7 +82,7 @@ enum CertService {
     case getCerts(page: String, limit: String)
 }
 
-// MARK: - TargetType Protocol Implementation
+// MARK: - Moya TargetType Protocol Implementation
 extension CertService: TargetType {
     var baseURL: URL {
         guard let url = URL(string: APIManager.APIConstants.APIBase) else { fatalError() }
@@ -106,8 +123,7 @@ extension CertService: TargetType {
     }
 }
 
-
-// MARK: - Error
+// MARK: - Custom Error Model Object
 struct ErrorModel: Codable, Error {
     var code : String = ""
     var message : String? = ""

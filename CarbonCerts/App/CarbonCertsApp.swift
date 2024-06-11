@@ -10,9 +10,30 @@ import SwiftData
 
 @main
 struct CarbonCertsApp: App {
+    
+    let modelContainer: ModelContainer
+    
     var body: some Scene {
         WindowGroup {
-            MainContentView()
-        }.modelContainer(for: Certificate.self, isAutosaveEnabled: true)
+            MainContentView(certService: APIManager())
+        }.modelContainer(modelContainer)
+    }
+    
+    init() {
+        var inMemory = false
+        
+#if DEBUG
+        if CommandLine.arguments.contains("enable-testing") {
+            inMemory = true
+        }
+#endif
+        
+        do {
+            let configuration = ModelConfiguration(for: Certificate.self, isStoredInMemoryOnly: inMemory)
+            modelContainer = try ModelContainer(for: Certificate.self, configurations: configuration)
+        } catch {
+            fatalError("Failed to load model container.")
+        }
     }
 }
+

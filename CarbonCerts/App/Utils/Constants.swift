@@ -21,4 +21,9 @@ struct Constants {
         static let Status = "Status: "
         static let CertNA = "Certificate Not Available"
     }
+    
+    struct AccessibilityIdentifiers {
+        static let BookmarkButton = "bookmarkButton"
+        static let AddSamplesButton = "addSamples"
+    }
 }

@@ -12,11 +12,14 @@ struct CertificatesListView: View {
     
     // MARK: SwiftData related
     // must use modelContext in view's env to use 'Query'
-    @Environment(\.modelContext) private var context
+    private var context: ModelContext
     @Query(sort: \Certificate.id, order: .forward) var allSavedCertificates: Certificates
-    
     @ObservedObject var viewModel: CertificatesListViewModel
-    @State private var isLoading: Bool = true
+    
+    init(context: ModelContext, viewModel: CertificatesListViewModel) {
+        self.context = context
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
@@ -41,9 +44,18 @@ struct CertificatesListView: View {
                 .navigationBarTitleDisplayMode(.large)
             }
             .onAppear {
+#if DEBUG
+                if CommandLine.arguments.contains("enable-testing") {
+                    Button {
+                        viewModel.addSamples()
+                    } label: {
+                        Text("add samples")
+                    }.accessibilityIdentifier(Constants.AccessibilityIdentifiers.AddSamplesButton)
+                }
+#else
                 if allSavedCertificates.isEmpty {
                     Task {
-                        await viewModel.loadCertificates(page: 1, limit: 10, from: context)
+                        await viewModel.loadCertificates(page: 1, limit: 10)
                         do {
                             try context.save()
                         } catch {
@@ -53,12 +65,9 @@ struct CertificatesListView: View {
                 } else {
                     viewModel.certs = allSavedCertificates
                 }
+#endif
             }
         }
     }
 }
 
-#Preview {
-    CertificatesListView(viewModel: CertificatesListViewModel())
-        .modelContainer(for: Certificate.self, inMemory: true)
-}

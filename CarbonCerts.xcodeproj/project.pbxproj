@@ -19,18 +19,25 @@
 		B30FB7CB2C13B93300ECD88A /* CertificatesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7C12C13B04100ECD88A /* CertificatesListView.swift */; };
 		B30FB7CC2C13B93500ECD88A /* CertificatesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7BF2C13AEC300ECD88A /* CertificatesListViewModel.swift */; };
 		B30FB7CD2C13B93900ECD88A /* CertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7B92C133E6B00ECD88A /* CertService.swift */; };
-		B30FB7CE2C13B93A00ECD88A /* CertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7B92C133E6B00ECD88A /* CertService.swift */; };
 		B30FB7CF2C13B93E00ECD88A /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD52C11C04300015C9E /* Certificate.swift */; };
 		B3292FD22C11C04300015C9E /* CarbonCertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */; };
 		B3292FD42C11C04300015C9E /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD32C11C04300015C9E /* MainContentView.swift */; };
 		B3292FD62C11C04300015C9E /* Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD52C11C04300015C9E /* Certificate.swift */; };
 		B3292FD82C11C04400015C9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3292FD72C11C04400015C9E /* Assets.xcassets */; };
 		B3292FDC2C11C04400015C9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3292FDB2C11C04400015C9E /* Preview Assets.xcassets */; };
-		B3292FE62C11C04500015C9E /* CarbonCertsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE52C11C04500015C9E /* CarbonCertsTests.swift */; };
+		B3292FE62C11C04500015C9E /* CertificatesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FE52C11C04500015C9E /* CertificatesListViewModelTests.swift */; };
 		B3292FF02C11C04500015C9E /* CarbonCertsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FEF2C11C04500015C9E /* CarbonCertsUITests.swift */; };
 		B3292FF22C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FF12C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift */; };
 		B32930012C11C5FB00015C9E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930002C11C5FB00015C9E /* CombineMoya */; };
 		B32930032C11C5FB00015C9E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B32930022C11C5FB00015C9E /* Moya */; };
+		B3C497752C184963004911CD /* MockCertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C497742C184963004911CD /* MockCertService.swift */; };
+		B3C497782C184CEA004911CD /* CarbonCertServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C497772C184CEA004911CD /* CarbonCertServiceTests.swift */; };
+		B3C497792C187AB3004911CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7C42C13B73D00ECD88A /* Constants.swift */; };
+		B3C4977A2C187AB4004911CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30FB7C42C13B73D00ECD88A /* Constants.swift */; };
+		B3C4977B2C187ABA004911CD /* CertificateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */; };
+		B3C4977D2C187AC1004911CD /* CarbonCertsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3292FD12C11C04300015C9E /* CarbonCertsApp.swift */; };
+		B3C497852C187AD9004911CD /* MockCertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C497742C184963004911CD /* MockCertService.swift */; };
+		B3C497872C187BB7004911CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3292FD72C11C04400015C9E /* Assets.xcassets */; };
 		B3E4CC452C15CD2400A3B7D4 /* CertificateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,10 +73,12 @@
 		B3292FD92C11C04400015C9E /* CarbonCerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarbonCerts.entitlements; sourceTree = "<group>"; };
 		B3292FDB2C11C04400015C9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B3292FE12C11C04500015C9E /* CarbonCertsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonCertsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3292FE52C11C04500015C9E /* CarbonCertsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsTests.swift; sourceTree = "<group>"; };
+		B3292FE52C11C04500015C9E /* CertificatesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatesListViewModelTests.swift; sourceTree = "<group>"; };
 		B3292FEB2C11C04500015C9E /* CarbonCertsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonCertsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3292FEF2C11C04500015C9E /* CarbonCertsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsUITests.swift; sourceTree = "<group>"; };
 		B3292FF12C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3C497742C184963004911CD /* MockCertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCertService.swift; sourceTree = "<group>"; };
+		B3C497772C184CEA004911CD /* CarbonCertServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonCertServiceTests.swift; sourceTree = "<group>"; };
 		B3E4CC442C15CD2400A3B7D4 /* CertificateListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B30FB7B92C133E6B00ECD88A /* CertService.swift */,
+				B3C497762C184969004911CD /* Mock */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -206,7 +216,8 @@
 		B3292FE42C11C04500015C9E /* CarbonCertsTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3292FE52C11C04500015C9E /* CarbonCertsTests.swift */,
+				B3292FE52C11C04500015C9E /* CertificatesListViewModelTests.swift */,
+				B3C497772C184CEA004911CD /* CarbonCertServiceTests.swift */,
 			);
 			path = CarbonCertsTests;
 			sourceTree = "<group>";
@@ -227,6 +238,14 @@
 				B30FB7C42C13B73D00ECD88A /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B3C497762C184969004911CD /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B3C497742C184963004911CD /* MockCertService.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		B3E4CC422C15CCDC00A3B7D4 /* CustomComponents */ = {
@@ -365,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C497872C187BB7004911CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +405,7 @@
 				B3292FD42C11C04300015C9E /* MainContentView.swift in Sources */,
 				B3292FD62C11C04300015C9E /* Certificate.swift in Sources */,
 				B30FB7C62C13B91C00ECD88A /* FavouritesListView.swift in Sources */,
+				B3C497752C184963004911CD /* MockCertService.swift in Sources */,
 				B3E4CC452C15CD2400A3B7D4 /* CertificateListCell.swift in Sources */,
 				B30FB7C22C13B04100ECD88A /* CertificatesListView.swift in Sources */,
 				B30FB7C82C13B92800ECD88A /* FavouritesListViewModel.swift in Sources */,
@@ -399,13 +420,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C497782C184CEA004911CD /* CarbonCertServiceTests.swift in Sources */,
 				B30FB7CC2C13B93500ECD88A /* CertificatesListViewModel.swift in Sources */,
+				B3C497852C187AD9004911CD /* MockCertService.swift in Sources */,
 				B30FB7CD2C13B93900ECD88A /* CertService.swift in Sources */,
+				B3C4977B2C187ABA004911CD /* CertificateListCell.swift in Sources */,
 				B30FB7C72C13B92200ECD88A /* FavouritesListView.swift in Sources */,
 				B30FB7C92C13B92800ECD88A /* FavouritesListViewModel.swift in Sources */,
-				B3292FE62C11C04500015C9E /* CarbonCertsTests.swift in Sources */,
+				B3C497792C187AB3004911CD /* Constants.swift in Sources */,
+				B3292FE62C11C04500015C9E /* CertificatesListViewModelTests.swift in Sources */,
 				B30FB7CB2C13B93300ECD88A /* CertificatesListView.swift in Sources */,
 				B30FB7CA2C13B92F00ECD88A /* MainContentView.swift in Sources */,
+				B3C4977D2C187AC1004911CD /* CarbonCertsApp.swift in Sources */,
 				B30FB7CF2C13B93E00ECD88A /* Certificate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,8 +441,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3292FF02C11C04500015C9E /* CarbonCertsUITests.swift in Sources */,
-				B30FB7CE2C13B93A00ECD88A /* CertService.swift in Sources */,
 				B3292FF22C11C04500015C9E /* CarbonCertsUITestsLaunchTests.swift in Sources */,
+				B3C4977A2C187AB4004911CD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,10 +52,12 @@ struct CertificateListCell: View {
                     Spacer()
                     Button(action: {
                         certificate.isFavorited.toggle()
+                        saveContext()
                     }) {
-                        Image(systemName: certificate.isFavorited ? "bookmark.fill" : "bookmark")
+                        Image(systemName: certificate.isFavorited ? "bookmark.fill": "bookmark")
                             .foregroundColor(.blue)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 30))
+                            .accessibilityIdentifier("\(Constants.AccessibilityIdentifiers.BookmarkButton)_\(certificate.id ?? "unknown")")
                     }
                 }
                 Spacer()
