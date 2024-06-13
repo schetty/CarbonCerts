@@ -23,7 +23,7 @@ struct Constants {
     }
     
     struct AccessibilityIdentifiers {
-        static let BookmarkButton = "bookmarkButton"
-        static let AddSamplesButton = "addSamples"
+        static let BookmarkButton = "BookmarkButton"
+        static let AddSamplesButton = "AddSamplesButton"
     }
 }

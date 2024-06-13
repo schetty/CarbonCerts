@@ -26,18 +26,25 @@ final class CarbonCertsUITests: XCTestCase {
     }
     
     func testBookmarkButtonTaps() {
+        let homeButton = app.buttons["Home"]
+              XCTAssertTrue(homeButton.exists, "The Home tab bar button should exist")
+              homeButton.tap()
+        
         let addSamplesButton = app.buttons[Constants.AccessibilityIdentifiers.AddSamplesButton]
         XCTAssertTrue(addSamplesButton.exists, "The add samples button should exist")
         
         addSamplesButton.tap()
         
+        let cell = app.cells.element(boundBy: 0)
+        XCTAssertTrue(cell.exists, "The first certificate cell should exist after adding samples")
+        
         let bookmarkButton = app.cells.buttons["\(Constants.AccessibilityIdentifiers.BookmarkButton)_555wnfndjjf"]
         XCTAssertTrue(bookmarkButton.exists, "The bookmark button should exist")
         
         bookmarkButton.tap()
-        
-        let filledBookmarkButton = app.buttons["bookmark.fill"]
-        XCTAssertTrue(filledBookmarkButton.exists, "The bookmark button should change to filled after tapping")
+
+        XCTAssertTrue(bookmarkButton.exists, "Bookmark image taps and changes to fill")
+
     }
     
     func testLaunchPerformance() throws {

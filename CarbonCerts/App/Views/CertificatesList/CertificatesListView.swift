@@ -22,6 +22,8 @@ struct CertificatesListView: View {
     }
     
     var body: some View {
+        let isTestingEnabled = CommandLine.arguments.contains("enable-testing")
+
         NavigationView {
             VStack {
                 List {
@@ -42,30 +44,30 @@ struct CertificatesListView: View {
                 .toolbarBackground(.agreenateal, for: .navigationBar)
                 .toolbarColorScheme(.dark)
                 .navigationBarTitleDisplayMode(.large)
-            }
-            .onAppear {
-#if DEBUG
-                if CommandLine.arguments.contains("enable-testing") {
+                
+                if isTestingEnabled {
                     Button {
                         viewModel.addSamples()
                     } label: {
-                        Text("add samples")
+                        Text(Constants.AccessibilityIdentifiers.AddSamplesButton)
                     }.accessibilityIdentifier(Constants.AccessibilityIdentifiers.AddSamplesButton)
                 }
-#else
-                if allSavedCertificates.isEmpty {
-                    Task {
-                        await viewModel.loadCertificates(page: 1, limit: 10)
-                        do {
-                            try context.save()
-                        } catch {
-                            print("Failed to save context: \(error)")
+            }
+            .onAppear {
+                if !isTestingEnabled{
+                    if allSavedCertificates.isEmpty {
+                        Task {
+                            await viewModel.loadCertificates(page: 1, limit: 10)
+                            do {
+                                try context.save()
+                            } catch {
+                                print("Failed to save context: \(error)")
+                            }
                         }
+                    } else {
+                        viewModel.certs = allSavedCertificates
                     }
-                } else {
-                    viewModel.certs = allSavedCertificates
                 }
-#endif
             }
         }
     }
